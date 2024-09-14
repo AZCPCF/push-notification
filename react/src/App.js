@@ -1,22 +1,24 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
-import { generateToken, messaging } from "./notifications/firebase";
+import { generateToken, messaging } from "./firebase/firebase";
 import { onMessage } from "firebase/messaging";
+// import { AddNewUserAnonymously } from "./firebase/auth";
 
 function App() {
-  const [pl,setPl] = useState('')
+  // AddNewUserAnonymously();
+  const [pl, setPl] = useState("");
   useEffect(() => {
     generateToken();
-    onMessage(messaging,(payload) => {
-      setPl(payload)
+    onMessage(messaging, (payload) => {
+      setPl(payload);
       console.log(payload);
-    })
+    });
   }, []);
   return (
     <div className="App">
       <header className="App-header">
-      <p>{pl}</p>
+        <p>{pl}</p>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
