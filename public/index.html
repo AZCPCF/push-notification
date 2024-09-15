@@ -15,6 +15,37 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- Najva Push Notification -->
+    <script type="text/javascript">
+      (function () {
+        var now = new Date();
+        var version =
+          now.getFullYear().toString() +
+          "0" +
+          now.getMonth() +
+          "0" +
+          now.getDate() +
+          "0" +
+          now.getHours();
+        var head = document.getElementsByTagName("head")[0];
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href =
+          "https://van.najva.com/static/cdn/css/local-messaging.css" +
+          "?v=" +
+          version;
+        head.appendChild(link);
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.async = true;
+        script.src =
+          "https://van.najva.com/static/js/scripts/new-website426963-website-58950-3318e725-10f3-40ec-bed5-f02bfff50af8.js" +
+          "?v=" +
+          version;
+        head.appendChild(script);
+      })();
+    </script>
+    <!-- END NAJVA PUSH NOTIFICATION -->
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
